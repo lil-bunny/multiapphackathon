@@ -8,7 +8,7 @@
 
 <p align="center"><strong><a href="https://www.loom.com/share/3a8a2258c3b2460e955252462354155f">▶ Watch full demo on Loom</a></strong></p>
 
-# Multi-App Shipment CRM Agent
+# AI logistic team mate who stays on your email thread, slack & excel
 
 LangGraph agent for freight operations: ingest carrier mail, maintain a Google Sheets CRM, classify thread replies with OpenAI, notify ops on Slack, and email customers when deliveries change.
 
