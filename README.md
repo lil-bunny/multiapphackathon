@@ -1,6 +1,8 @@
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/b31057dc845141c0ab0d522e068b3c4f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-[![Demo Video](https://cdn.loom.com/sessions/thumbnails/b31057dc845141c0ab0d522e068b3c4f-with-play.gif)](https://www.loom.com/share/b31057dc845141c0ab0d522e068b3c4f)
+<p align="center">
+  <a href="https://www.loom.com/share/b31057dc845141c0ab0d522e068b3c4f">
+    <img src="https://cdn.loom.com/sessions/thumbnails/b31057dc845141c0ab0d522e068b3c4f-with-play.gif" width="720" alt="Watch the demo on Loom">
+  </a>
+</p>
 
 # Multi-App Shipment CRM Agent
 
