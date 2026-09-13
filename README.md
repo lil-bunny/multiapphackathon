@@ -1,3 +1,7 @@
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/b31057dc845141c0ab0d522e068b3c4f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+[![Demo Video](https://cdn.loom.com/sessions/thumbnails/b31057dc845141c0ab0d522e068b3c4f-with-play.gif)](https://www.loom.com/share/b31057dc845141c0ab0d522e068b3c4f)
+
 # Multi-App Shipment CRM Agent
 
 LangGraph agent for freight operations: ingest carrier mail, maintain a Google Sheets CRM, classify thread replies with OpenAI, notify ops on Slack, and email customers when deliveries change.
@@ -235,12 +239,6 @@ curl -X POST http://127.0.0.1:8001/run -H "Content-Type: application/json" -d "{
 3. Send ratecon PDF → row gets `mail_thread_id` linked.
 4. Reply with driver details → sheet updates; carrier thank-you; follow-up after ~10s.
 5. Reply on-track **or** delay → carrier ack **or** Slack + customer PDF email.
-
-## Demo video
-
-_(Add link to demo recording here)_
-
----
 
 ## License
 
