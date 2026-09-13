@@ -1,8 +1,12 @@
+## Demo video
+
 <p align="center">
   <a href="https://www.loom.com/share/b31057dc845141c0ab0d522e068b3c4f">
-    <img src="https://cdn.loom.com/sessions/thumbnails/b31057dc845141c0ab0d522e068b3c4f-with-play.gif" width="720" alt="Watch the demo on Loom">
+    <img src="docs/demo.gif" width="720" alt="AI Agent Automates Logistics Email Workflows — click to watch on Loom">
   </a>
 </p>
+
+<p align="center"><strong><a href="https://www.loom.com/share/b31057dc845141c0ab0d522e068b3c4f">▶ Watch full demo on Loom</a></strong></p>
 
 # Multi-App Shipment CRM Agent
 
