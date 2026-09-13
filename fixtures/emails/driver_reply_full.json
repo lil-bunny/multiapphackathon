@@ -1,0 +1,25 @@
+{
+  "thread_id": "thread-1042",
+  "fixture_thread_messages": [
+    {
+      "from": "carrier@example.com",
+      "subject": "Re: SHP-1042 driver details",
+      "body": "Driver is John Smith, phone 555-0100, email john.smith@carrier.com"
+    }
+  ],
+  "fixture_classification": {
+    "intent": "driver_details",
+    "confidence": 0.95,
+    "reason": "Full driver contact provided",
+    "driver": {
+      "name": "John Smith",
+      "phone": "555-0100",
+      "email": "john.smith@carrier.com"
+    },
+    "delay": {
+      "new_delivery_datetime": null,
+      "delay_hours": null,
+      "reason": null
+    }
+  }
+}

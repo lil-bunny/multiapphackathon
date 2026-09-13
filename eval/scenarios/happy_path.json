@@ -1,0 +1,130 @@
+{
+  "name": "Happy path (SHP-2099)",
+  "settings": {
+    "DELIVERY_FOLLOWUP_DELAY_SECONDS": 0
+  },
+  "initial_rows": "fixtures/sheets/preseed_2099.json",
+  "steps": [
+    {
+      "label": "Pre-seeded CRM row loaded",
+      "type": "assert_store",
+      "expect": {
+        "crm": {
+          "shipment_id": "SHP-2099",
+          "delivery_date": "2026-09-15 14:00",
+          "customer_email": "customer@example.com",
+          "mail_thread_id": "",
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "label": "Ratecon links mail thread",
+      "payload": {
+        "event_type": "pdf_assignment",
+        "thread_id": "thread-2099",
+        "fixture_pdf_extract": {
+          "shipment_id": "SHP-2099",
+          "delivery_date": "2026-09-20 10:00"
+        },
+        "fixture_pdf_bytes": "fake-pdf"
+      },
+      "expect": {
+        "no_errors": true,
+        "crm": {
+          "shipment_id": "SHP-2099",
+          "delivery_date": "2026-09-15 14:00",
+          "customer_email": "customer@example.com",
+          "mail_thread_id": "thread-2099",
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "label": "Driver details + carrier thank-you",
+      "payload": {
+        "event_type": "email_reply",
+        "thread_id": "thread-2099",
+        "email_id": "email-driver-1",
+        "subject": "Re: Rate confirmation SHP-2099",
+        "fixture_thread_messages": [
+          {
+            "from": "carrier@example.com",
+            "subject": "Re: Rate confirmation SHP-2099",
+            "body": "Driver is Deepak Sharma, phone 9883391021, email deepak@carrier.com"
+          }
+        ],
+        "fixture_classification": {
+          "intent": "driver_details",
+          "driver": {
+            "name": "Deepak Sharma",
+            "phone": "9883391021",
+            "email": "deepak@carrier.com"
+          },
+          "delay": {}
+        }
+      },
+      "expect": {
+        "no_errors": true,
+        "crm": {
+          "driver_name": "Deepak Sharma",
+          "driver_phone": "9883391021",
+          "driver_email": "deepak@carrier.com",
+          "status": "driver_assigned"
+        },
+        "state": {
+          "carrier_ack_sent": true,
+          "delivery_followup_scheduled": true
+        },
+        "emails_delta": {
+          "carrier_ack": 1
+        }
+      }
+    },
+    {
+      "label": "Delivery status follow-up",
+      "type": "wait_followup",
+      "expect": {
+        "crm": {
+          "status": "awaiting_delivery_status"
+        },
+        "emails_total": {
+          "delivery_followup": 1
+        }
+      }
+    },
+    {
+      "label": "On-track carrier confirmation",
+      "payload": {
+        "event_type": "email_reply",
+        "thread_id": "thread-2099",
+        "email_id": "email-ontrack-1",
+        "subject": "Re: Rate confirmation SHP-2099",
+        "fixture_thread_messages": [
+          {
+            "from": "carrier@example.com",
+            "subject": "Re: Rate confirmation SHP-2099",
+            "body": "On time for the delivery window."
+          }
+        ],
+        "fixture_classification": {
+          "intent": "delivery_status",
+          "driver": {},
+          "delay": {}
+        }
+      },
+      "expect": {
+        "no_errors": true,
+        "crm": {
+          "status": "on_track"
+        },
+        "state": {
+          "on_track_ack_sent": true
+        },
+        "emails_delta": {
+          "carrier_on_track_ack": 1
+        }
+      }
+    }
+  ]
+}

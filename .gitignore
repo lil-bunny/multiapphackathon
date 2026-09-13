@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Google / OAuth secrets — never commit
+gen-lang-client-*.json
+service-account.json
+credentials.json
+client_secret*.json
+token.json

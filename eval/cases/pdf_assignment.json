@@ -1,0 +1,19 @@
+{
+  "name": "pdf_assignment",
+  "payload": {
+    "event_type": "pdf_assignment",
+    "thread_id": "thread-1042-new",
+    "customer_email": "customer@example.com",
+    "fixture_pdf_extract": {
+      "shipment_id": "SHP-2099",
+      "delivery_date": "2026-09-20 10:00"
+    },
+    "fixture_pdf_bytes": "fake-pdf"
+  },
+  "expect": {
+    "shipment_id": "SHP-2099",
+    "delivery_date": "2026-09-20 10:00",
+    "status": "pending",
+    "customer_emails_sent": 0
+  }
+}

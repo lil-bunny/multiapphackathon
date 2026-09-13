@@ -1,0 +1,38 @@
+{
+  "name": "driver_reply",
+  "initial_rows": "fixtures/sheets/initial_rows.json",
+  "payload": {
+    "event_type": "email_reply",
+    "thread_id": "thread-1042",
+    "fixture_thread_messages": [
+      {
+        "from": "carrier@example.com",
+        "subject": "Re: SHP-1042 driver details",
+        "body": "Driver is John Smith, phone 555-0100, email john.smith@carrier.com"
+      }
+    ],
+    "fixture_classification": {
+      "intent": "driver_details",
+      "confidence": 0.95,
+      "reason": "Full driver contact provided",
+      "driver": {
+        "name": "John Smith",
+        "phone": "555-0100",
+        "email": "john.smith@carrier.com"
+      },
+      "delay": {
+        "new_delivery_datetime": null,
+        "delay_hours": null,
+        "reason": null
+      }
+    }
+  },
+  "expect": {
+    "driver_name": "John Smith",
+    "driver_phone": "555-0100",
+    "driver_email": "john.smith@carrier.com",
+    "status": "driver_assigned",
+    "customer_emails_sent": 0,
+    "carrier_ack_emails_sent": 1
+  }
+}

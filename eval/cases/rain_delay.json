@@ -1,0 +1,39 @@
+{
+  "name": "rain_delay",
+  "initial_rows": "fixtures/sheets/initial_rows.json",
+  "payload": {
+    "event_type": "email_reply",
+    "thread_id": "thread-1042",
+    "fixture_thread_messages": [
+      {
+        "from": "carrier@example.com",
+        "subject": "Re: SHP-1042 delay",
+        "body": "Running late due to rain. ETA pushed by 3 hours."
+      }
+    ],
+    "fixture_classification": {
+      "intent": "delivery_delay",
+      "confidence": 0.92,
+      "reason": "Weather delay mentioned with 3 hour slip",
+      "driver": {
+        "name": null,
+        "phone": null,
+        "email": null
+      },
+      "delay": {
+        "new_delivery_datetime": null,
+        "delay_hours": "3",
+        "reason": "Rain delay - approximately 3 hours late"
+      }
+    }
+  },
+  "expect": {
+    "current_delivery_datetime": "2026-09-15 17:00",
+    "delay_reason": "Rain delay - approximately 3 hours late",
+    "status": "delayed",
+    "customer_notice_version": 1,
+    "customer_emails_sent": 1,
+    "carrier_ack_emails_sent": 0,
+    "slack_alerts_sent": 1
+  }
+}

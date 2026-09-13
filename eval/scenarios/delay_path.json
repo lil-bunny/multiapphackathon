@@ -1,0 +1,87 @@
+{
+  "name": "Delay path (SHP-1042)",
+  "settings": {
+    "DELIVERY_FOLLOWUP_DELAY_SECONDS": 0
+  },
+  "initial_rows": "fixtures/sheets/initial_rows.json",
+  "steps": [
+    {
+      "label": "Driver details saved",
+      "payload": {
+        "event_type": "email_reply",
+        "thread_id": "thread-1042",
+        "email_id": "email-driver-1042",
+        "subject": "Re: SHP-1042 driver details",
+        "fixture_thread_messages": [
+          {
+            "from": "carrier@example.com",
+            "subject": "Re: SHP-1042 driver details",
+            "body": "Driver is John Smith, phone 555-0100, email john.smith@carrier.com"
+          }
+        ],
+        "fixture_classification": {
+          "intent": "driver_details",
+          "driver": {
+            "name": "John Smith",
+            "phone": "555-0100",
+            "email": "john.smith@carrier.com"
+          },
+          "delay": {}
+        }
+      },
+      "expect": {
+        "no_errors": true,
+        "crm": {
+          "driver_name": "John Smith",
+          "status": "driver_assigned"
+        },
+        "state": {
+          "carrier_ack_sent": true
+        },
+        "emails_delta": {
+          "carrier_ack": 1
+        }
+      }
+    },
+    {
+      "label": "Slack alert + customer notice email",
+      "payload": {
+        "event_type": "email_reply",
+        "thread_id": "thread-1042",
+        "email_id": "email-delay-1042",
+        "subject": "Re: SHP-1042 delay",
+        "fixture_thread_messages": [
+          {
+            "from": "carrier@example.com",
+            "subject": "Re: SHP-1042 delay",
+            "body": "Running late due to rain. ETA pushed by 3 hours."
+          }
+        ],
+        "fixture_classification": {
+          "intent": "delivery_delay",
+          "driver": {},
+          "delay": {
+            "delay_hours": "3",
+            "reason": "Rain delay - approximately 3 hours late"
+          }
+        }
+      },
+      "expect": {
+        "no_errors": true,
+        "crm": {
+          "current_delivery_datetime": "2026-09-15 17:00",
+          "delay_reason": "Rain delay - approximately 3 hours late",
+          "status": "delayed",
+          "customer_notice_version": 1
+        },
+        "state": {
+          "customer_notified": true
+        },
+        "emails_delta": {
+          "customer": 1
+        },
+        "slack_delta": 1
+      }
+    }
+  ]
+}

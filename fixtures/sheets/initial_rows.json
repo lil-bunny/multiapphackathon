@@ -1,0 +1,18 @@
+[
+  {
+    "shipment_id": "SHP-1042",
+    "delivery_date": "2026-09-15 14:00",
+    "current_delivery_datetime": "2026-09-15 14:00",
+    "delay_reason": "",
+    "driver_name": "",
+    "driver_email": "",
+    "driver_phone": "",
+    "mail_thread_id": "thread-1042",
+    "customer_email": "customer@example.com",
+    "assignment_pdf_link": "",
+    "latest_notice_link": "",
+    "customer_notice_version": 0,
+    "status": "pending",
+    "last_customer_emailed_at": ""
+  }
+]
