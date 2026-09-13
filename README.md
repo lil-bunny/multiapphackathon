@@ -6,7 +6,7 @@
   </a>
 </p>
 
-<p align="center"><strong><a href="https://www.loom.com/share/b31057dc845141c0ab0d522e068b3c4f">▶ Watch full demo on Loom</a></strong></p>
+<p align="center"><strong><a href="https://www.loom.com/share/3a8a2258c3b2460e955252462354155f">▶ Watch full demo on Loom</a></strong></p>
 
 # Multi-App Shipment CRM Agent
 
