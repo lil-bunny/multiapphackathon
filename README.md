@@ -1,7 +1,7 @@
 ## Demo video
 
 <p align="center">
-  <a href="https://www.loom.com/share/b31057dc845141c0ab0d522e068b3c4f">
+  <a href="https://www.loom.com/share/3a8a2258c3b2460e955252462354155f">
     <img src="docs/demo.gif" width="720" alt="AI Agent Automates Logistics Email Workflows — click to watch on Loom">
   </a>
 </p>
