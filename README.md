@@ -47,7 +47,7 @@ A **webhook-driven LangGraph workflow** that:
 | **Unipile** | Inbound email webhooks, read threads, send replies (Reply-All CC preserved) |
 | **Google Sheets** | Shipment CRM — pre-seeded rows + live driver/delay updates |
 | **Slack** | Ops delay alerts via incoming webhook |
-| **OpenAI** | Classify email replies (`driver_details`, `delivery_status`, `delivery_delay`) |
+
 
 ---
 
